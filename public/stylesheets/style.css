@@ -1296,3 +1296,93 @@ p {
   .home-container { row-gap: 1.2rem; }
   .home-img { display: block; width: 220px; margin: 0 auto 0.8rem; }
 }
+
+/* =========================
+   MOBILE HERO CLEANUP OVERRIDES
+   (Placed at the end so these rules win on mobile)
+   ========================= */
+
+@media screen and (max-width: 768px) {
+  /* Make hero single-column, centered, and more breathable */
+  .home {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 3.5rem 1rem 2rem !important;
+    min-height: auto !important;
+    height: auto !important;
+    text-align: center !important;
+    background-position: center !important;
+    background-size: cover !important;
+  }
+
+  .home-container {
+    width: 100% !important;
+    max-width: 720px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+  }
+
+  /* Scale down heading and subtitle so they don't push content away */
+  .home-title {
+    font-size: 1.9rem !important;
+    line-height: 1.15 !important;
+    margin: 0.25rem 0 0.5rem !important;
+  }
+
+  .home-subtitle {
+    font-size: 1rem !important;
+    opacity: 1 !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  /* Make description readable and confined */
+  .home-description {
+    font-size: .95rem !important;
+    line-height: 1.45 !important;
+    max-width: 92% !important;
+    margin: 0 auto 1rem !important;
+    opacity: 1 !important;
+  }
+
+  /* Show a small profile image but keep it compact */
+  .home-img {
+    display: block !important;
+    width: 160px !important;
+    max-width: 45% !important;
+    margin: 0 auto 0.8rem !important;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% !important;
+  }
+
+  /* Remove side clutter on mobile */
+  .home-social,
+  .home-scroll,
+  .my-info {
+    display: none !important;
+  }
+
+  /* Ensure main content sits below the top nav on mobile */
+  .main {
+    margin-left: 0 !important;
+    margin-top: 64px !important;
+    width: 100% !important;
+  }
+
+  /* Slightly reduce button size for mobile */
+  .button, .home .button {
+    padding: 0.6rem 1rem !important;
+    font-size: .95rem !important;
+  }
+}
+
+/* extra small phones — tighten a bit more */
+@media screen and (max-width: 480px) {
+  .home-title { font-size: 1.6rem !important; }
+  .home-img { width: 140px !important; }
+  .home-description { font-size: .9rem !important; }
+  .home-container { gap: 0.6rem !important; padding: 0 0.5rem !important; }
+  .main { margin-top: 56px !important; }
+}
