@@ -1150,85 +1150,6 @@ p {
     margin-bottom: 1.5rem;
   }
 }
-/* Mobile / Tablet navbar fix */
-@media screen and (max-width: 768px) {
-  #sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #111;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-    padding: 0.5rem 1rem;
-    height: auto;
-  }
-
-  #sidebar.show-sidebar {
-    transform: translateY(0);
-  }
-
-  /* Force horizontal menu layout */
-  #sidebar .nav-menu {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  #sidebar .nav-menu li {
-    display: inline-block;
-    margin: 0;
-  }
-
-  #sidebar .nav-menu a {
-    color: #fff;
-    font-size: 1rem;
-    padding: 0.5rem;
-    display: inline-block;
-  }
-
-  #nav-toggle {
-    display: block;
-    position: fixed;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: var(--first-color, #4caf50);
-    color: var(--body-color, #fff);
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    z-index: 1101;
-  }
-}
-
-  /* Hide the close button if you use one */
-  #nav-close {
-    display: none;
-  }
-
-/* Mobile view: s how only intro text in home section */
-/* Mobile view: show only intro text in home section */
-@media screen and (max-width: 480px) {
-  /* Hide everything except the title */
-  .home > *:not(.home-title) {
-    display: none !important;
-  }
-
-  .home-title {
-    display: block !important;
-    font-size: var(--biggest-font-size, 1.5rem);
-    text-align: center;
-    margin: 2rem 0;
-  }
-}
-
 /* Force horizontal navbar layout for mobile/tablet */
 @media screen and (max-width: 768px) {
   #sidebar .nav-menu,
@@ -1258,3 +1179,25 @@ p {
     text-decoration: none;
   }
 }
+
+  /* Hide the close button if you use one */
+  #nav-close {
+    display: none;
+  }
+
+/* Mobile view: show only intro text in home section */
+/* Mobile view: show only intro text in home section */
+@media screen and (max-width: 480px) {
+  /* Hide everything except the title */
+  .home > *:not(.home-title) {
+    display: none !important;
+  }
+
+  .home-title {
+    display: block !important;
+    font-size: var(--biggest-font-size, 1.5rem);
+    text-align: center;
+    margin: 2rem 0;
+  }
+}
+
