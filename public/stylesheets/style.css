@@ -315,9 +315,8 @@ button { cursor: pointer; }
     min-height: 100vh;
     width: calc(100% - 100px);
 }
-/*
-.home { background: url('https://ik.imagekit.io/gopichakradhar/Lisa.jpeg'); background-size: cover; background-position: center center; height: 100vh; }
-*/.home { background: url('/images/6102631963765621878_121.png'); background-size: cover; background-position: center center; height: 100vh;width: 100%; }
+
+.home { background: url('/images/6102631963765621878_121.png'); background-size: cover; background-position: center center; height: 100vh;width: 100%; }
 .home-container { 
     position: relative; 
     height: 100%; 
@@ -427,7 +426,6 @@ button { cursor: pointer; }
 }
 
 /* Main - About */
-
 
 .about-container { 
     grid-template-columns: repeat(2, 1fr); 
@@ -830,6 +828,7 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
     .container { margin-left: var(--mb15); margin-right: var(--mb15); }
     .sidebar { width: 100px; z-index: 999; }
     .show-sidebar { transform: translateX(0); }
+    /* desktop rotated vertical menu gets disabled on tablet in the overrides below */
     .nav-menu { height: 100%; width: 100%; transform: rotate(0deg) translateX(0); display: flex; justify-content: center; }
     .nav-list { flex-direction: column; height: 100%; justify-content: center; align-items: center; }
     .nav-link { padding: 1rem 0; line-height: 1.5; }
@@ -959,7 +958,8 @@ textarea.input { padding: 0.8rem 1.2rem; min-height: 140px; border-radius: .5rem
 .skills-header.skills-active {
     background-color: #131313; /* Optional visual highlight */
 }
-/* Base Reset */
+
+/* ----- Consolidated base reset (kept minimal) ----- */
 * {
   margin: 0;
   padding: 0;
@@ -988,7 +988,7 @@ p {
   line-height: 1.5;
 }
 
-/* Navbar responsiveness */
+/* Navbar responsiveness helper (kept generic) */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -1026,7 +1026,7 @@ p {
   border: 1px solid #ccc;
 }
 
-/* Responsive Breakpoints */
+/* Responsive Breakpoints (generic) */
 @media (max-width: 1024px) {
   .container {
     width: 95%;
@@ -1063,6 +1063,7 @@ p {
     font-size: 0.9rem;
   }
 }
+
 /* Tablet screens */
 @media screen and (max-width: 768px) {
     .container {
@@ -1150,7 +1151,8 @@ p {
     margin-bottom: 1.5rem;
   }
 }
-/* Force horizontal navbar layout for mobile/tablet */
+
+/* Force horizontal navbar layout for mobile/tablet (additional safe override) */
 @media screen and (max-width: 768px) {
   #sidebar .nav-menu,
   .navbar ul {
@@ -1174,7 +1176,7 @@ p {
   .navbar ul a {
     display: inline-block !important;
     padding: 0.5rem;
-    color: #fff;
+    color: var(--title-color);
     font-size: 1rem;
     text-decoration: none;
   }
@@ -1185,19 +1187,112 @@ p {
     display: none;
   }
 
-/* Mobile view: show only intro text in home section */
-/* Mobile view: show only intro text in home section */
-@media screen and (max-width: 480px) {
-  /* Hide everything except the title */
-  .home > *:not(.home-title) {
-    display: none !important;
+/* ======= IMPORTANT MOBILE NAV FIX OVERRIDES =======
+   These override the rotated vertical nav and the rule that hid .home children.
+   They force the sidebar to become a top navbar on tablets/phones and ensure
+   main content is pushed below the top bar.
+   ================================================== */
+@media screen and (max-width: 1024px) {
+  /* Make sidebar a top horizontal bar */
+  .sidebar {
+    width: 100% !important;
+    height: 64px !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--box-color) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 1rem !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    transform: translateX(0) !important;
+    background-color: var(--body-color);
+    z-index: 1100;
   }
 
-  .home-title {
-    display: block !important;
-    font-size: var(--biggest-font-size, 1.5rem);
-    text-align: center;
-    margin: 2rem 0;
+  .nav-logo {
+    position: relative !important;
+    left: initial !important;
+    right: initial !important;
+    top: initial !important;
+    margin: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* disable rotated menu behavior */
+  .nav-menu {
+    position: relative !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+  }
+
+  .nav-list {
+    flex-direction: row !important;
+    height: auto !important;
+    margin: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .nav-link {
+    line-height: normal !important;
+    padding: 0 .75rem !important;
+    height: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .nav-toggle {
+    display: flex !important;
+    position: relative !important;
+    right: initial !important;
+    top: initial !important;
+    margin-left: .5rem;
+  }
+
+  /* main push below the top nav */
+  .main {
+    margin-left: 0 !important;
+    margin-top: 64px !important;
+    width: 100% !important;
   }
 }
 
+/* finer adjustments for phones */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    height: 56px !important;
+    padding: 0 .75rem !important;
+  }
+  .main { margin-top: 56px !important; }
+
+  .nav-link {
+    font-size: .95rem;
+    padding: 0 .5rem;
+  }
+
+  /* Keep home social compact */
+  .home-social { column-gap: 1rem; right: .5rem; top: .6rem; left: initial; }
+}
+
+/* Ensure we do NOT hide .home children on small screens (override any earlier hide rules) */
+@media screen and (max-width: 480px) {
+  .home > *:not(.home-title) {
+    display: initial !important; /* restore default display for all children */
+  }
+
+  .sidebar { height: 56px !important; }
+  .main { margin-top: 56px !important; padding-top: 0.5rem; }
+
+  .home { padding: 3.5rem 1rem 1.5rem; }
+  .home-container { row-gap: 1.2rem; }
+  .home-img { display: block; width: 220px; margin: 0 auto 0.8rem; }
+}
