@@ -1209,3 +1209,17 @@ p {
     display: none;
   }
 }
+/* Mobile view: show only intro text in home section */
+@media screen and (max-width: 480px) {
+  .home * {
+    display: none !important;
+  }
+
+  .home-title {
+    display: block !important;
+    font-size: var(--biggest-font-size, 1.5rem);
+    text-align: center;
+    margin: 2rem 0;
+  }
+}
+
