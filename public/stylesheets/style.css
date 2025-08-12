@@ -1316,6 +1316,12 @@ p {
     background-position: center !important;
     background-size: cover !important;
   }
+  .nav-logo{
+    display: block !important;
+  }
+  .btn-share {
+    display: block !important;
+  }
 
   .home-container {
     width: 100% !important;
