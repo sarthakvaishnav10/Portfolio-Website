@@ -1154,34 +1154,41 @@ p {
         text-align: center;
     }
 }
-/* Sidebar collapsed on mobile */
+/* Mobile / Tablet navbar style */
 @media screen and (max-width: 768px) {
   #sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;          /* Full width for top bar */
-    height: auto;         /* Only as tall as needed */
+    width: 100%;
+    height: 60px; /* small height for navbar */
     background: #111;
-    transform: translateY(-100%); /* Slide down instead of from left */
+    transform: translateY(-100%); /* hidden above */
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
-    padding: 0.5rem 0;
+    padding: 0; /* remove big padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #sidebar.show-sidebar {
-    transform: translateY(0); /* Slide into view from top */
+    transform: translateY(0); /* slide down */
   }
 
-  /* Optional: horizontal nav menu for top bar */
   #sidebar .nav-menu {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    gap: 1.5rem;
   }
 
   #sidebar .nav-menu li {
-    margin: 0.5rem;
+    margin: 0; /* no vertical spacing */
+  }
+
+  #sidebar .nav-menu a {
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.25rem 0;
   }
 
   .nav-toggle {
@@ -1198,12 +1205,12 @@ p {
   }
 }
 
-/* Desktop sidebar */
+/* Desktop sidebar stays same */
 #sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100px;
+  width: 260px;
   height: 100%;
   background: #111;
   transform: translateX(-100%);
