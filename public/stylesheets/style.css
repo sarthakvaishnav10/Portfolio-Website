@@ -1229,3 +1229,32 @@ p {
   }
 }
 
+/* Force horizontal navbar layout for mobile/tablet */
+@media screen and (max-width: 768px) {
+  #sidebar .nav-menu,
+  .navbar ul {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #sidebar .nav-menu li,
+  .navbar ul li {
+    display: inline-block !important;
+    margin: 0;
+  }
+
+  #sidebar .nav-menu a,
+  .navbar ul a {
+    display: inline-block !important;
+    padding: 0.5rem;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+}
