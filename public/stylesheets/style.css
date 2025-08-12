@@ -1150,9 +1150,8 @@ p {
     margin-bottom: 1.5rem;
   }
 }
-/* Mobile / Tablet navbar */
+/* Mobile / Tablet navbar fix */
 @media screen and (max-width: 768px) {
-  /* Navbar container */
   #sidebar {
     position: fixed;
     top: 0;
@@ -1166,21 +1165,25 @@ p {
     height: auto;
   }
 
-  /* Show navbar when toggled */
   #sidebar.show-sidebar {
     transform: translateY(0);
   }
 
-  /* Horizontal menu layout */
+  /* Force horizontal menu layout */
   #sidebar .nav-menu {
-    display: flex;
-    flex-direction: row;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     gap: 1.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   #sidebar .nav-menu li {
+    display: inline-block;
     margin: 0;
   }
 
@@ -1188,9 +1191,9 @@ p {
     color: #fff;
     font-size: 1rem;
     padding: 0.5rem;
+    display: inline-block;
   }
 
-  /* Hamburger icon on right */
   #nav-toggle {
     display: block;
     position: fixed;
@@ -1203,15 +1206,18 @@ p {
     cursor: pointer;
     z-index: 1101;
   }
+}
 
   /* Hide the close button if you use one */
   #nav-close {
     display: none;
   }
-}
+
+/* Mobile view: s how only intro text in home section */
 /* Mobile view: show only intro text in home section */
 @media screen and (max-width: 480px) {
-  .home * {
+  /* Hide everything except the title */
+  .home > *:not(.home-title) {
     display: none !important;
   }
 
