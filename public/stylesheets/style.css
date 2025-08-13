@@ -1400,3 +1400,17 @@ p {
         display: none !important;
     }
 }
+
+/* === Make navbar horizontally scrollable on mobile === */
+@media (max-width: 768px) {
+    .nav-links {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    .nav-links::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+}
