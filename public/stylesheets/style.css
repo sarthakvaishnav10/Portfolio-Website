@@ -1414,27 +1414,43 @@ p {
         display: none; /* Chrome, Safari, Opera */
     }
 }
-/* === Hide nav-logo and btn-share on mobile and tablet === */
+/* === FINAL: Mobile horizontal, swipeable nav === */
 @media (max-width: 1024px) {
-  .btn-share,
-  .nav-logo {
-    display: none !important;
+  html, body {
+    overflow-x: hidden; /* keep sections (like Contact) from pushing the page wide */
   }
-}
 
-/* === Make navbar swipeable on mobile === */
-@media (max-width: 768px) {
-  .nav-links {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch; /* smooth scroll */
-    scrollbar-width: none; /* Firefox */
+  /* the fixed top bar */
+  .sidebar {
+    width: 100% !important;
+    overflow: hidden; /* clip glow/shadows but not the inner scroller */
   }
-  .nav-links::-webkit-scrollbar {
-    display: none; /* Chrome/Safari/Opera */
+
+  /* make the nav area itself horizontally scrollable */
+  .sidebar .nav-menu {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+    scrollbar-width: none; /* Firefox: hide scrollbar */
   }
-  .nav-links li {
-    flex: 0 0 auto; /* prevent shrinking/wrapping */
+  .sidebar .nav-menu::-webkit-scrollbar { display: none; } /* Chrome/Safari: hide scrollbar */
+
+  /* keep items in a single row and allow them to exceed container width */
+  .sidebar .nav-list {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: .75rem;
+    margin: 0 !important;              /* override the desktop negative margin */
+    padding: 0 .75rem !important;      /* breathing room for swipe */
+    min-width: max-content;            /* prevents shrinking; enables horizontal overflow */
+  }
+
+  .sidebar .nav-item { flex: 0 0 auto; }  /* each item keeps its width */
+  .sidebar .nav-link {
+    line-height: 1.2 !important;
+    height: auto !important;
+    padding: .5rem .25rem !important;  /* tighter so more items fit */
   }
 }
