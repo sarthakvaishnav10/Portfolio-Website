@@ -1414,3 +1414,27 @@ p {
         display: none; /* Chrome, Safari, Opera */
     }
 }
+/* === Hide nav-logo and btn-share on mobile and tablet === */
+@media (max-width: 1024px) {
+  .btn-share,
+  .nav-logo {
+    display: none !important;
+  }
+}
+
+/* === Make navbar swipeable on mobile === */
+@media (max-width: 768px) {
+  .nav-links {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* smooth scroll */
+    scrollbar-width: none; /* Firefox */
+  }
+  .nav-links::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+  }
+  .nav-links li {
+    flex: 0 0 auto; /* prevent shrinking/wrapping */
+  }
+}
