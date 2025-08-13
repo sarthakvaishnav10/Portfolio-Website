@@ -1034,12 +1034,6 @@ p {
 }
 
 @media (max-width: 768px) {
-     .nav-logo{
-    display: block !important;
-  }
-  .btn-share {
-    display: block !important;
-  }
   .navbar ul {
     flex-direction: column;
     align-items: flex-start;
@@ -1072,12 +1066,6 @@ p {
 
 /* Tablet screens */
 @media screen and (max-width: 768px) {
-     .nav-logo{
-    display: block !important;
-  }
-  .btn-share {
-    display: block !important;
-  }
     .container {
         margin-left: 1rem;
         margin-right: 1rem;
@@ -1127,12 +1115,6 @@ p {
 
 /* Mobile fix for Home Section */
 @media screen and (max-width: 480px) {
-     .nav-logo{
-    display: block !important;
-  }
-  .btn-share {
-    display: block !important;
-  }
   .home {
     display: flex;
     flex-direction: column;
@@ -1173,12 +1155,6 @@ p {
 /* Force horizontal navbar layout for mobile/tablet (additional safe override) */
 @media screen and (max-width: 768px) {
   #sidebar .nav-menu,
-   .nav-logo{
-    display: block !important;
-  }
-  .btn-share {
-    display: block !important;
-  }
   .navbar ul {
     display: flex !important;
     flex-direction: row !important;
@@ -1218,12 +1194,6 @@ p {
    ================================================== */
 @media screen and (max-width: 1024px) {
   /* Make sidebar a top horizontal bar */
-   .nav-logo{
-    display: block !important;
-  }
-  .btn-share {
-    display: block !important;
-  }
   .sidebar {
     width: 100% !important;
     height: 64px !important;
@@ -1311,12 +1281,6 @@ p {
 
   /* Keep home social compact */
   .home-social { column-gap: 1rem; right: .5rem; top: .6rem; left: initial; }
-   .nav-logo{
-    display: block !important;
-  }
-  .btn-share {
-    display: block !important;
-  }
 }
 
 /* Ensure we do NOT hide .home children on small screens (override any earlier hide rules) */
@@ -1331,12 +1295,6 @@ p {
   .home { padding: 3.5rem 1rem 1.5rem; }
   .home-container { row-gap: 1.2rem; }
   .home-img { display: block; width: 220px; margin: 0 auto 0.8rem; }
-   .nav-logo{
-    display: block !important;
-  }
-  .btn-share {
-    display: block !important;
-  }
 }
 
 /* =========================
@@ -1433,10 +1391,12 @@ p {
   .home-description { font-size: .9rem !important; }
   .home-container { gap: 0.6rem !important; padding: 0 0.5rem !important; }
   .main { margin-top: 56px !important; }
-   .nav-logo{
-    display: block !important;
-  }
-  .btn-share {
-    display: block !important;
-  }
+}
+
+/* === Hide nav-logo and btn-share on mobile and tablet === */
+@media (max-width: 1024px) {
+    .btn-share,
+    .nav-logo {
+        display: none !important;
+    }
 }
