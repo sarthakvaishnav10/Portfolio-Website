@@ -1393,58 +1393,24 @@ p {
   .main { margin-top: 56px !important; }
 }
 
+/* === Hide nav-logo and btn-share on mobile and tablet === */
+@media (max-width: 1024px) {
+    .btn-share,
+    .nav-logo {
+        display: none !important;
+    }
+}
 
-
-/* ===== MOBILE HORIZONTAL-SCROLL NAVBAR FIX (final overrides) ===== */
-@media screen and (max-width: 768px) {
-  /* Container should be full width and scrollable horizontally */
-  .nav-menu {
-    width: 100% !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    overscroll-behavior-x: contain !important;
-  }
-
-  /* Make the list a single row that can extend beyond the viewport */
-  .nav-list {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
-    gap: 0.9rem !important;
-    padding: 0 0.75rem !important;
-    margin: 0 !important;
-  }
-
-  /* Prevent items from shrinking/wrapping so they remain swipeable */
-  .nav-link {
-    flex: 0 0 auto !important;
-    white-space: nowrap !important;
-    padding: 0.5rem 0.6rem !important;
-    line-height: 1.2 !important;
-  }
-
-  /* Optional: visually hide scrollbars while keeping swipe */
-  .nav-menu::-webkit-scrollbar,
-  .nav-list::-webkit-scrollbar {
-    height: 0 !important;
-    width: 0 !important;
-    background: transparent !important;
-  }
-
-  /* Ensure the fixed top bar doesn't cause horizontal overflow */
-  .sidebar {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-  }
-
-  /* Ensure the main content never exceeds viewport width */
-  .main {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-  }
+/* === Make navbar horizontally scrollable on mobile === */
+@media (max-width: 768px) {
+    .nav-links {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    .nav-links::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
 }
